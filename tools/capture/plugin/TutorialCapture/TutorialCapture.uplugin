@@ -1,0 +1,25 @@
+
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "1.0",
+	"FriendlyName": "TutorialCapture",
+	"Description": "Exposes editor widget bounds and focusing to Python for docs-as-tests.",
+	"Category": "Testing",
+	"CreatedBy": "Unreal Knowledge Engine",
+	"CreatedByURL": "",
+	"DocsURL": "",
+	"MarketplaceURL": "",
+	"SupportURL": "",
+	"CanContainContent": false,
+	"IsBetaVersion": false,
+	"IsExperimentalVersion": true,
+	"Installed": false,
+	"Modules": [
+		{
+			"Name": "TutorialCapture",
+			"Type": "Editor",
+			"LoadingPhase": "PostEngineInit"
+		}
+	]
+}

@@ -1,0 +1,12 @@
+id: staticmesh.collision.concept
+type: concept
+title: "Understanding Static Mesh Collision"
+description: "Overview of simple vs complex collision in Unreal Engine."
+roles: ["technical_artist", "level_designer"]
+skill_level: "beginner"
+prerequisites: []
+evidence:
+  - file: "Engine/Source/Runtime/Engine/Classes/Engine/StaticMesh.h"
+    symbol: "UStaticMesh::ComplexCollisionMesh"
+    symbol_id: "prop_complex_collision"
+    snippet_hash: "a1b2c3d4e5f6"

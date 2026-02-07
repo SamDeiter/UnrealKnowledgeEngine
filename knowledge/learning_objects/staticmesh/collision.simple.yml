@@ -1,0 +1,12 @@
+id: staticmesh.collision.simple
+type: task
+title: "Setting up Simple Collision"
+description: "How to generate and apply simple collision primitives."
+roles: ["technical_artist"]
+skill_level: "intermediate"
+prerequisites: ["staticmesh.collision.concept"]
+evidence:
+  - file: "Engine/Source/Editor/StaticMeshEditor/Private/StaticMeshEditor.cpp"
+    symbol: "FStaticMeshEditor::OnCollisionSphere"
+    symbol_id: "func_on_collision_sphere"
+    snippet_hash: "f6e5d4c3b2a1"

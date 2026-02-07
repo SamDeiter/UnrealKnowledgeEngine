@@ -1,31 +1,84 @@
-# Unreal Knowledge Engine
+# Unreal Knowledge Engine (UKE) v4.1 POC
 
-An exception-gated autonomous knowledge graph for Unreal Engine 5 documentation.
+Proof-of-concept for the Unreal Knowledge Engine, demonstrating Learning Objects (LOs), Trust Gate validation, automated docs-as-tests capture, and deterministic learning paths.
 
-The system compiles and continuously validates a graph of **Learning Objects (LOs)** backed by code evidence, executable tests, and deterministic path planning.
+## Prerequisites
 
-## Architecture
+- **Python 3.11+**
+- **Unreal Engine 5** (Source build or Launcher version) - Required for `capture` and full `heal` verification.
+- **Dependencies**: `rich`, `pydantic`, `PyYAML`, `pillow` (Install via `pip install .`)
 
-See [Architecture v4.1](docs/architecture_v4.1.md) for the full system design.
+## Installation
 
-### Core Principles
-
-- **Immutable Truth** — Every claim is backed by code evidence (SHA + structural identity)
-- **Docs are Tests** — Task LOs have executable validation when feasible
-- **Management by Exception** — Mechanical drift is auto-healed; semantic drift is flagged
-- **Context-Aware** — Learning paths use user/project context as constraints
-- **Auditable** — Every auto-merge is attributable, reproducible, and reversible
-
-## Project Structure
-
-```
-UnrealKnowledgeEngine/
-├── docs/
-│   └── architecture_v4.1.md   # System architecture document
-├── README.md
-└── .gitignore
+```bash
+pip install -e .
 ```
 
-## License
+## CLI Commands
 
-Private — All rights reserved.
+The `uke` CLI is the main entrypoint.
+
+### 1. Initialization
+
+Creates the folder structure and sample `context.json`.
+
+```bash
+uke init
+```
+
+### 2. Gate (Validation)
+
+Validates LO schema and evidence integrity.
+
+```bash
+uke gate --engine <UE_ENGINE_PATH>
+```
+
+Outputs: `out/gate_report.json`, `out/status.json`
+
+### 3. Capture (Docs-as-Tests)
+
+Runs the integration test for a specific LO in Unreal Engine, capturing screenshots and layout data.
+
+```bash
+uke capture --engine <UE_ENGINE_PATH> --lo staticmesh.collision.simple
+```
+
+Outputs: `out/images/staticmesh.collision.simple/` (step_01.png, step_01.layout.json, step_01.final.png)
+
+### 4. Auto-Heal
+
+Checks for cosmetic drift using normalized hashing.
+
+```bash
+uke heal --engine <UE_ENGINE_PATH> --from-sha <OLD> --to-sha <NEW>
+```
+
+Outputs: Audit logs in `out/audit/`
+
+### 5. Plan
+
+Generates a deterministic learning path based on context.
+
+```bash
+uke plan --context context.json
+```
+
+Outputs: `out/path/path.json`, `out/path/path.md`
+
+### 6. Site Generation
+
+Generates a static markdown site for the LOs.
+
+```bash
+uke site
+```
+
+Outputs: `out/site/`
+
+## Repo Structure
+
+- **knowledge/**: LO definitions (YAML) and assets.
+- **tools/**: Python implementations for gate, capture, heal, plan, cli.
+- **out/**: Generated artifacts (ignored by git).
+- **tests/**: Unit tests.

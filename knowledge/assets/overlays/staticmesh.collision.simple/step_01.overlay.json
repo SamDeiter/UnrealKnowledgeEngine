@@ -1,0 +1,22 @@
+{
+  "steps": [
+    {
+      "step_id": "step_01",
+      "instruction": "Locate the Collision Complexity setting in the Details panel.",
+      "overlays": [
+        {
+          "type": "rectangle",
+          "anchor": "CollisionComplexityRow",
+          "color": "red",
+          "thickness": 3
+        },
+        {
+          "type": "badge",
+          "anchor": "CollisionComplexityRow",
+          "text": "1",
+          "position": "top-left"
+        }
+      ]
+    }
+  ]
+}

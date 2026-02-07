@@ -1,0 +1,12 @@
+id: staticmesh.collision.troubleshoot
+type: troubleshooting
+title: "Fixing Missing Collision"
+description: "Steps to diagnose why a mesh has no collision at runtime."
+roles: ["technical_artist", "programmer"]
+skill_level: "advanced"
+prerequisites: ["staticmesh.collision.simple"]
+evidence:
+  - file: "Engine/Source/Runtime/Engine/Private/PhysicsEngine/BodySetup.cpp"
+    symbol: "UBodySetup::CreatePhysicsMeshes"
+    symbol_id: "func_create_physics_meshes"
+    snippet_hash: "1234567890ab"

@@ -1,0 +1,19 @@
+[project]
+name = "uke"
+version = "0.1.0"
+description = "Unreal Knowledge Engine POC"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "rich",
+    "pydantic",
+    "PyYAML",
+    "pillow"
+]
+
+[project.scripts]
+uke = "tools.cli:main"
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
